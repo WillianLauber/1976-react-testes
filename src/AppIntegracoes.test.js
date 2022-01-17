@@ -23,7 +23,7 @@ describe("Requisições para a API", () => {
     ]);
 
     render(<App />);
-    await screen.findByText("saque");
+    expect(await screen.findByText("saque")).toBeInTheDocument();
     expect(screen.getByTestId("transacoes").children.length).toBe(2);
   });
 });
