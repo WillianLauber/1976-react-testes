@@ -28,11 +28,12 @@ describe("Componente principal", () => {
   });
 
   it("que é um saque, a transacao é realizada", () => {
-    const { getByText, getByTestId, getByLabelText } = render(<App />);
-    const saldo = getByText("R$ 1000");
-    const transacao = getByLabelText("Saque");
-    const valor = getByTestId("valor");
-    const botaoTransacao = getByText("Realizar operação");
+    render(<App />);
+
+    const saldo = screen.getByText("R$ 1000");
+    const transacao = screen.getByLabelText("Saque");
+    const valor = screen.getByTestId("valor");
+    const botaoTransacao = screen.getByText("Realizar operação");
 
     fireEvent.click(transacao, { target: { value: "saque" } });
     fireEvent.change(valor, { target: { value: 10 } });
